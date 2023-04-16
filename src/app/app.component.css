@@ -1,0 +1,11 @@
+.content-wrapper {
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.error-message {
+  padding: 1rem;
+  margin: 1rem;
+  color: white;
+  background-color: lightcoral;
+}

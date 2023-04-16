@@ -1,0 +1,23 @@
+.table-wrapper {
+  max-height: calc(100vh - 6rem);
+  overflow: auto;
+}
+
+.sticky-rowspan-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 56px;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.sticky-colspan-header {
+  position: sticky;
+  top: 0;
+  text-align: center;
+}

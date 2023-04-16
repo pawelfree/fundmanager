@@ -1,0 +1,15 @@
+<app-spinner-overlay *ngIf="loading$ | async"></app-spinner-overlay>
+
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>Financial Instruments</span>
+</mat-toolbar>
+
+<mat-card *ngIf="error$ | async; else table" class="error-message mat-elevation-z8">
+  <mat-label class="red-label">Error loading instruments data</mat-label>
+</mat-card>
+
+<ng-template #table>
+  <div class="content-wrapper">
+    <app-instrument-table></app-instrument-table>
+  </div>
+</ng-template>

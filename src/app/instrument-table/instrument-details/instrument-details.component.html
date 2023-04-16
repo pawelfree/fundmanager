@@ -1,0 +1,70 @@
+<h3 mat-dialog-title>
+  <span>Instrument details - {{ data.instrument.fundName }}</span>
+</h3>
+<div mat-dialog-content>
+  <mat-card class="mat-elevation-z6">
+    <mat-card-header>
+      <mat-card-title>Basic data</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table class="basic-table">
+        <tr>
+          <td class="basic-title">Company</td>
+          <td>{{data.instrument.fundCompany}}</td>
+        </tr>
+        <tr>
+          <td>Isin</td>
+          <td>{{data.instrument.isin}}</td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>{{data.instrument.fundType}}</td>
+        </tr>        <tr>
+        <td>Currency</td>
+        <td>{{data.instrument.currency}}</td>
+      </tr>
+      </table>
+    </mat-card-content>
+    <mat-card-header>
+      <mat-card-title>Performance</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table style="width: 100%">
+        <tr>
+          <th class="performance-title">1 month</th>
+          <th class="performance-title">3 months</th>
+          <th class="performance-title">1 year</th>
+          <th class="performance-title">3 years</th>
+        </tr>
+        <tr>
+          <td style="text-align: right">
+            <app-instrument-change [change]="data.instrument.change1m"></app-instrument-change>
+          </td>
+          <td style="text-align: right">
+            <app-instrument-change [change]="data.instrument.change3m"></app-instrument-change>
+          </td>
+          <td style="text-align: right">
+            <app-instrument-change [change]="data.instrument.change1y"></app-instrument-change>
+          </td>
+          <td style="text-align: right">
+            <app-instrument-change [change]="data.instrument.change3y"></app-instrument-change>
+          </td>
+        </tr>
+      </table>
+    </mat-card-content>
+    <ng-container *ngIf="data.instrument.documents.length > 0">
+      <mat-card-header>
+        <mat-card-title>Documents</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-action-list class="basic-table">
+            <a mat-list-item *ngFor="let document of data.instrument.documents"
+               class="document-link"
+               (click)="window.open(document.url)">
+              {{document.title}}
+            </a>
+        </mat-action-list>
+      </mat-card-content>
+    </ng-container>
+  </mat-card>
+</div>

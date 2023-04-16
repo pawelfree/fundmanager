@@ -1,0 +1,10 @@
+<ng-container *ngIf="!!change; else notAvailable">
+  <span [ngClass]="change >= 0 ? 'positive' : 'negative'">
+    {{ change | divide: 100 | percent: '1.2-2'}}
+    <mat-icon *ngIf="change >= 0">arrow_drop_up</mat-icon>
+    <mat-icon *ngIf="change < 0">arrow_drop_down</mat-icon>
+  </span>
+</ng-container>
+<ng-template #notAvailable>
+  <span style="color: gray">n/a</span>
+</ng-template>
